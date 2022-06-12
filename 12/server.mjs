@@ -2,7 +2,7 @@ import http from "http";
 import fs from "fs/promises";
 
 const server = http.createServer(async (req, res) => {
-  if (req.url === "/upload") {
+  if (req.method === "POST") {
     req.setEncoding("latin1");
 
     let rawData = "";
