@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const ws = new WebSocket("ws://localhost:8080")
+
+    ws.onmessage = (message) => {
+        console.log("Message: ",message.data)
+    }
+    ws.onopen = () => {
+        ws.send('Test')
+    }
+
+</script>
+<button onclick="cc()">Get</button>
+<div id="text">
+
+</div>
+</body>
+</html>
