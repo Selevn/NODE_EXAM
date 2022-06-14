@@ -1,0 +1,70 @@
+openapi: 3.0.0
+info:
+  title: Telephone book
+  version: 1.0.0
+paths:
+  /ts:
+    get:
+      description: Gets all the telephones and names
+      responses:
+        "200":
+          description: Returns a list of all the telephones and names
+    post:
+      description: Adds a new telephone and name
+      requestBody:
+        description: The new telephone and name
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FIO:
+                  type: string
+                phone:
+                  type: string
+              example:
+                FIO: Jessica Smith
+                phone: 375293798321
+      responses:
+        "200":
+          description: Returns created telephone and name
+    put:
+      description: Updates telephone and name or adds a new one
+      requestBody:
+        description: The new telephone and name
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FIO:
+                  type: string
+                phone:
+                  type: string
+              example:
+                FIO: Jessica Smith
+                phone: 375293798321
+      responses:
+        "200":
+          description: Returns updated telephone and name
+    delete:
+      description: Deletes telephone and name by FIO and phone
+      requestBody:
+        description: The telephone and name that needs to be deleted
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FIO:
+                  type: string
+                phone:
+                  type: string
+              example:
+                FIO: Jessica Smith
+                phone: 375293798321
+      responses:
+        "200":
+          description: Returns 'Entry deleted'
+components: {}
+tags: []

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wasm</title>
+</head>
+<body>
+<span id="rsum"></span>
+<script>
+    (async ()=>{
+        console.log('qweq')
+
+        const res = await fetch('http://localhost:3000/lab.wasm')
+        console.log('qweq')
+        console.log(res)
+        const {module, instance} = WebAssembly.instantiateStreaming(res);
+        console.log(instance)
+        console.log(module)
+        document.getElementById('rsum').innerHTML = instance.exports.sum(4,5)
+    })()
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wasm</title>
+</head>
+<body>
+<span id="rsum"></span>
+<span id="rsub"></span>
+<span id="rmul"></span>
+<script>
+    (async ()=>{
+        const res = fetch('http://localhost:3000/lab.wasm')
+        console.log(res)
+        const {module, instance} = await WebAssembly.instantiateStreaming(res);
+        document.getElementById('rsum').innerHTML = instance.exports.sum(4,5)
+        document.getElementById('rsub').innerHTML = instance.exports.sub(4,5)
+        document.getElementById('rmul').innerHTML = instance.exports.mul(4,5)
+    })()
+</script>
+</body>
+</html>
